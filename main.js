@@ -16,7 +16,8 @@ window.onload = init;
 // Set up all event listeners.
 function init() {
     // When they click the add todo button, run `addTodo`.
-
+    document.querySelector('#add-todo')
+        .addEventListener('click', addTodo);
         
     // When they click the clear done todos button, run `clearDoneTodos`.
 
@@ -27,7 +28,7 @@ function init() {
 
 function addTodo(event) {
     // Stop page from reloading on button click.
-
+    event.preventDefault();
 
     // Get new todo from the new todo input field.
 
@@ -52,7 +53,7 @@ function addTodo(event) {
 
 function clearAllTodos(event) {
     // Stop page from reloading on button click.
-
+    event.preventDefault();
     
     // Remove all todos from BOTH arrays.
 
@@ -64,7 +65,7 @@ function clearAllTodos(event) {
 
 function clearDoneTodos(event) {
     // Stop page from reloading on button click.
-
+    event.preventDefault();
     /*
         Find which todos need to be removed and remove them from BOTH arrays.
         If you did it right when making them, you should be able to check the
