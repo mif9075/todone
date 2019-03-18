@@ -34,9 +34,16 @@ function addTodo(event) {
     event.preventDefault();
 
     // Get new todo from the new todo input field.
-
+    let todo = document.querySelector('#new-todo').value;
 
     // Clear the input field of all text.
+    
+    // Find all input fields.
+    const inputs = document.querySelectorAll('input');
+    
+    // For each one, set its current value to an empty string.
+    for(let i = 0; i < inputs.length; i++) {
+        inputs[i].value = '';
 
 
     // Put the todo and its "done-ness" in their respective arrays.
