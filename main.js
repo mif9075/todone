@@ -47,17 +47,21 @@ function addTodo(event) {
 
     // Put the todo and its "done-ness" in their respective arrays.
     if (todo !==''){
-        todos.push(todo);}
+        todos.push(todo);
+        isDone.push(todo);}
 
     console.log(todos);
+    console.log(isDone);
     // Create a new html element and put our new todo's text in there.
-
+    const ol = document.querySelector('#todo-list');
     
     // Add an event listener on the newly created html element to launch
     // `toggleDone` when it's clicked.
-
+    document.querySelector(ol)
+        .addEventListener('click', toggleDone);
 
     // Put our new element on the list part of our page!
+
 
 }
 
@@ -69,7 +73,10 @@ function clearAllTodos(event) {
     // Remove all todos from BOTH arrays.
         todos = [];
         isDone = [];
-    
+
+        console.log(todos);
+        console.log(isDone);
+
     // Remove all todos from the html.
     // You'll have to write that function too, but we'll call it here:
     removeAllChildrenOfOl();
@@ -129,7 +136,9 @@ function toggleDone(event) {
 
 function removeAllChildrenOfOl() {
     // Grab the ol.
-
+    while(ol.hasChildNodes()) {
+        ol.removeChild(ol.firstChild);
+    }
 
     // Remove all its children.
     // The way I like to do that is to continue to remove children as long as
