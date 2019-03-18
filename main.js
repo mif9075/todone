@@ -37,18 +37,19 @@ function addTodo(event) {
     let todo = document.querySelector('#new-todo').value;
 
     // Clear the input field of all text.
-    
-    // Find all input fields.
-    const inputs = document.querySelectorAll('input');
-    
-    // For each one, set its current value to an empty string.
-    for(let i = 0; i < inputs.length; i++) {
-        inputs[i].value = '';
 
+        // Find all input fields.
+        const inputs = document.querySelectorAll('input');
+    
+        // For each one, set its current value to an empty string.
+        for(let i = 0; i < inputs.length; i++) {
+            inputs[i].value = '';}
 
     // Put the todo and its "done-ness" in their respective arrays.
+    if (todo !==''){
+        todos.push(todo);}
 
-
+    console.log(todos);
     // Create a new html element and put our new todo's text in there.
 
     
@@ -135,5 +136,4 @@ function removeAllChildrenOfOl() {
     // there are some to remove.
     // Look at the methods `.hasChildNodes` and `removeChild`.
     // There are other ways too, though. Feel free to poke around.
-
 }
