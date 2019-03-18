@@ -20,9 +20,12 @@ function init() {
         .addEventListener('click', addTodo);
         
     // When they click the clear done todos button, run `clearDoneTodos`.
-
+    document.querySelector('#clear-done-todos')
+    .addEventListener('click', clearDoneTodos);
     
     // When they click the clear all todos button, run `clearAllTodos`.
+    document.querySelector('#clear-all-todos')
+    .addEventListener('click', clearAllTodos);
 
 }
 
