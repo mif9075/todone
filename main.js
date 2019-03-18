@@ -59,7 +59,8 @@ function clearAllTodos(event) {
     event.preventDefault();
     
     // Remove all todos from BOTH arrays.
-
+        todos = [];
+        isDone = [];
     
     // Remove all todos from the html.
     // You'll have to write that function too, but we'll call it here:
