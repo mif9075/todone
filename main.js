@@ -64,7 +64,8 @@ function addTodo(event) {
 
     // Put our new element on the list part of our page!
     removeAllChildrenOfOl(ol);
-     
+    
+    // Functions addItemstoOL and addItemtoOL
     for (let i = 0; i < todos.length; i++) {
     const newLi = document.createElement('li');
     newLi.innerText = todos[i];
@@ -141,10 +142,12 @@ function toggleDone(event) {
 
 }
 
-function removeAllChildrenOfOl(ol) {
+function removeAllChildrenOfOl() {
     // Grab the ol.
-    while(ol.hasChildNodes()) {
-        ol.removeChild(ol.firstChild);
+    let olist = document.querySelector('#todo-list')
+
+    while(olist.hasChildNodes()) {
+        olist.removeChild(olist.firstChild);
     }
 
     // Remove all its children.
