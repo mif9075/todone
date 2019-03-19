@@ -49,18 +49,19 @@ function addTodo(event) {
     // Put the todo and its "done-ness" in their respective arrays.
     if (todo !==''){
         todos.push(todo);
-        isDone.push(todo);}
+        isDone.push(false);}
 
     console.log(todos);
     console.log(isDone);
+    
     // Create a new html element and put our new todo's text in there.
     const ol = document.querySelector('#todo-list');
     
     // Add an event listener on the newly created html element to launch
     // `toggleDone` when it's clicked.
     
-    // document.querySelector(ol)
-    //     .addEventListener('click', toggleDone);
+    document.querySelector('ol')
+        .addEventListener('click', toggleDone);
 
     // Put our new element on the list part of our page!
     removeAllChildrenOfOl(ol);
@@ -128,7 +129,7 @@ function toggleDone(event) {
     
     // Grab the HTML element that was clicked.
     // If you don't know, the event parameter has what you need... somewhere.
-
+    let toggle = document.querySelector('#todo-list');
 
     // Find the index of the array that this todo resides in. There are a couple
     // ways to do this, and I'm sure you'll figure one out!
@@ -144,7 +145,7 @@ function toggleDone(event) {
 
 function removeAllChildrenOfOl() {
     // Grab the ol.
-    let olist = document.querySelector('#todo-list')
+    let olist = document.querySelector('#todo-list');
 
     while(olist.hasChildNodes()) {
         olist.removeChild(olist.firstChild);
