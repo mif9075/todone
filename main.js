@@ -37,13 +37,14 @@ function addTodo(event) {
     let todo = document.querySelector('#new-todo').value;
 
     // Clear the input field of all text.
+    // "resetAllInputs" function
 
         // Find all input fields.
-        const inputs = document.querySelectorAll('input');
+        const input = document.querySelector('input');
     
         // For each one, set its current value to an empty string.
-        for(let i = 0; i < inputs.length; i++) {
-            inputs[i].value = '';}
+        
+            input.value = '';
 
     // Put the todo and its "done-ness" in their respective arrays.
     if (todo !==''){
@@ -57,11 +58,14 @@ function addTodo(event) {
     
     // Add an event listener on the newly created html element to launch
     // `toggleDone` when it's clicked.
-    document.querySelector(ol)
-        .addEventListener('click', toggleDone);
+    
+    // document.querySelector(ol)
+    //     .addEventListener('click', toggleDone);
 
     // Put our new element on the list part of our page!
+    removeAllChildrenOfOl(ol);
 
+    
 
 }
 
@@ -134,7 +138,7 @@ function toggleDone(event) {
 
 }
 
-function removeAllChildrenOfOl() {
+function removeAllChildrenOfOl(ol) {
     // Grab the ol.
     while(ol.hasChildNodes()) {
         ol.removeChild(ol.firstChild);
