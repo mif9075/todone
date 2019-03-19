@@ -44,35 +44,33 @@ function addTodo(event) {
     
         // For each one, set its current value to an empty string.
         
-            input.value = '';
+        input.value = '';
 
     // Put the todo and its "done-ness" in their respective arrays.
     if (todo !==''){
         todos.push(todo);
         isDone.push(false);}
 
-    console.log(todos);
-    console.log(isDone);
+    // console.log(todos);
+    // console.log(isDone);
     
     // Create a new html element and put our new todo's text in there.
     const ol = document.querySelector('#todo-list');
     
+    let newLi = document.createElement('li');
+    newLi.innerText = todo;
+    
+        // console.log(newLi);
     // Add an event listener on the newly created html element to launch
     // `toggleDone` when it's clicked.
-    
-    document.querySelector('ol')
-        .addEventListener('click', toggleDone);
-
-    // Put our new element on the list part of our page!
-    removeAllChildrenOfOl(ol);
+    console.log (newLi);
+    newLi.addEventListener('click', toggleDone);
     
     // Functions addItemstoOL and addItemtoOL
-    for (let i = 0; i < todos.length; i++) {
-    const newLi = document.createElement('li');
-    newLi.innerText = todos[i];
     ol.appendChild(newLi);
+
+    // console.log(ol);
     }
-}
 
 
 function clearAllTodos(event) {
@@ -129,11 +127,19 @@ function toggleDone(event) {
     
     // Grab the HTML element that was clicked.
     // If you don't know, the event parameter has what you need... somewhere.
-    let toggle = document.querySelector('#todo-list');
+
+    let toggle = event.target;
+    console.log(toggle);
 
     // Find the index of the array that this todo resides in. There are a couple
     // ways to do this, and I'm sure you'll figure one out!
 
+
+    // for (let i=0; i < todos.length; i++){
+    //     if (toggle === todos[i]) {
+    //         console.log(todos[i]);
+    //     }
+    //     }
 
     // *IF* it's not done yet, apply strikethrough. Otherwise, take that
     // strikethrough away!
@@ -149,11 +155,12 @@ function removeAllChildrenOfOl() {
 
     while(olist.hasChildNodes()) {
         olist.removeChild(olist.firstChild);
-    }
+    
 
     // Remove all its children.
     // The way I like to do that is to continue to remove children as long as
     // there are some to remove.
     // Look at the methods `.hasChildNodes` and `removeChild`.
     // There are other ways too, though. Feel free to poke around.
+}
 }
