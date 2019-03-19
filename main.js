@@ -64,9 +64,12 @@ function addTodo(event) {
 
     // Put our new element on the list part of our page!
     removeAllChildrenOfOl(ol);
-
-    
-
+     
+    for (let i = 0; i < todos.length; i++) {
+    const newLi = document.createElement('li');
+    newLi.innerText = todos[i];
+    ol.appendChild(newLi);
+    }
 }
 
 
