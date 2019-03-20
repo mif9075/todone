@@ -11,6 +11,7 @@ let todos = [];
 let isDone = [];
 
 
+
 // When the html finishes loading, launch `init`.
 window.onload = init;
 
@@ -104,10 +105,13 @@ function clearDoneTodos(event) {
         One way to do this is to build up a new array. Give that a try first!
 
     */
+    let newToDo = [];
+    let newIsDone = [];
+
     for (let i = 0; i < isDone.length; i++){
-        if (isDone[i] === true){
-            isDone[i] = '';
-            todos[i] = 'Completed:' + todos[i] ;
+        if (isDone[i] === false){
+            newToDo.push(todos[i]);
+            newIsDone.push(isDone[i]);
         }
     }
     // console.log(isDone);
@@ -131,7 +135,7 @@ function clearDoneTodos(event) {
 
    const ol = document.querySelector('#todo-list');
    removeAllChildrenOfOl();
-   _addItemsToOl(todos, ol);
+   _addItemsToOl(newToDo, ol);
 
    
 
