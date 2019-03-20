@@ -107,7 +107,7 @@ function clearDoneTodos(event) {
     for (let i = 0; i < isDone.length; i++){
         if (isDone[i] === true){
             isDone[i] = '';
-            todos[i] = '';
+            todos[i] = 'Congratulations: Completed toDo';
         }
     }
     console.log(isDone);
