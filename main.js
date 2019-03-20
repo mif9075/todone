@@ -52,8 +52,8 @@ function addTodo(event) {
         todos.push(todo);
         isDone.push(false);}
 
-    console.log(todos);
-    console.log(isDone);
+    // console.log(todos);
+    // console.log(isDone);
     
     // Create a new html element and put our new todo's text in there.
     const ol = document.querySelector('#todo-list');
@@ -83,8 +83,8 @@ function clearAllTodos(event) {
         todos = [];
         isDone = [];
 
-        console.log(todos);
-        console.log(isDone);
+        // console.log(todos);
+        // console.log(isDone);
 
     // Remove all todos from the html.
     // You'll have to write that function too, but we'll call it here:
@@ -110,8 +110,8 @@ function clearDoneTodos(event) {
             todos[i] = 'Completed:' + todos[i] ;
         }
     }
-    console.log(isDone);
-    console.log(todos);
+    // console.log(isDone);
+    // console.log(todos);
     
 
     
@@ -156,13 +156,13 @@ function toggleDone(event) {
             isDone[i] = true;
             toggle.style.textDecoration = 'line-through';
             // console.log(todos[i]);
-            console.log(isDone);
+            // console.log(isDone);
         }
         else if (toggle.innerText === todos[i] && isDone[i] === true) {
             isDone[i] = false;
             toggle.style.textDecoration = 'none';
             // console.log(todos[i]);
-            console.log(isDone);
+            // console.log(isDone);
         }
         }
 
