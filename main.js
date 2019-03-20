@@ -10,6 +10,7 @@ For example, isDone[3] would hold the "done-ness" information for todos[3].
 let todos = [];
 let isDone = [];
 
+
 // When the html finishes loading, launch `init`.
 window.onload = init;
 
@@ -103,8 +104,17 @@ function clearDoneTodos(event) {
         One way to do this is to build up a new array. Give that a try first!
 
     */
+    for (let i = 0; i < isDone.length; i++){
+        if (isDone[i] === true){
+            isDone[i] = '';
+            todos[i] = '';
+        }
+    }
+    console.log(isDone);
+    console.log(todos);
+    
 
-
+    
 
     /*
         Now remove the done todos from the html.
@@ -119,6 +129,11 @@ function clearDoneTodos(event) {
         Your call.
     */
 
+   const ol = document.querySelector('#todo-list');
+   removeAllChildrenOfOl();
+   _addItemsToOl(todos, ol);
+
+   
 
 }
 
@@ -140,7 +155,6 @@ function toggleDone(event) {
         if (toggle.innerText === todos[i] && isDone[i] === false) {
             isDone[i] = true;
             toggle.style.textDecoration = 'line-through';
-
             // console.log(todos[i]);
             console.log(isDone);
         }
@@ -174,4 +188,27 @@ function removeAllChildrenOfOl() {
     // Look at the methods `.hasChildNodes` and `removeChild`.
     // There are other ways too, though. Feel free to poke around.
 }
+}
+
+
+// Add all items given to the ol given.
+// Used INTERNALLY by the ol-updating functions above.
+function _addItemsToOl(items, ol) {
+    for(let i = 0; i < items.length; i++) {
+        // For every item in the list, add it to the given ol.
+        _addItemToOl(items[i], ol);
+    }
+}
+
+// Append any item given to the given ol.
+// Used INTERNALLY by _addItemsToOl
+function _addItemToOl(item, ol) {
+    // Make a new li.
+    const newLi = document.createElement('li');
+    // Add our item to it.
+    newLi.innerText = item;
+    // Append it to the given ol.
+    ol.appendChild(newLi);
+
+    newLi.addEventListener('click', toggleDone);
 }
