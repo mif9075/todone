@@ -137,8 +137,15 @@ function toggleDone(event) {
 
 
     for (let i = 0; i < todos.length; i++){
-        if (toggle === todos[i]) {
+        if (toggle === todos[i] && isDone[i] === false) {
             isDone[i] = true;
+
+            console.log(todos[i]);
+            console.log(isDone);
+        }
+        else if (toggle === todos[i] && isDone[i] === true) {
+            isDone[i] = false;
+
             console.log(todos[i]);
             console.log(isDone);
         }
