@@ -51,8 +51,8 @@ function addTodo(event) {
         todos.push(todo);
         isDone.push(false);}
 
-    // console.log(todos);
-    // console.log(isDone);
+    console.log(todos);
+    console.log(isDone);
     
     // Create a new html element and put our new todo's text in there.
     const ol = document.querySelector('#todo-list');
@@ -63,7 +63,8 @@ function addTodo(event) {
         // console.log(newLi);
     // Add an event listener on the newly created html element to launch
     // `toggleDone` when it's clicked.
-    console.log (newLi);
+
+    // console.log (newLi);
     newLi.addEventListener('click', toggleDone);
     
     // Functions addItemstoOL and addItemtoOL
@@ -128,18 +129,20 @@ function toggleDone(event) {
     // Grab the HTML element that was clicked.
     // If you don't know, the event parameter has what you need... somewhere.
 
-    let toggle = event.target;
-    console.log(toggle);
+    let toggle = event.target.innerText;
+        // console.log(toggle);
 
     // Find the index of the array that this todo resides in. There are a couple
     // ways to do this, and I'm sure you'll figure one out!
 
 
-    // for (let i=0; i < todos.length; i++){
-    //     if (toggle === todos[i]) {
-    //         console.log(todos[i]);
-    //     }
-    //     }
+    for (let i = 0; i < todos.length; i++){
+        if (toggle === todos[i]) {
+            isDone[i] = true;
+            console.log(todos[i]);
+            console.log(isDone);
+        }
+        }
 
     // *IF* it's not done yet, apply strikethrough. Otherwise, take that
     // strikethrough away!
