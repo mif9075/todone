@@ -129,7 +129,7 @@ function toggleDone(event) {
     // Grab the HTML element that was clicked.
     // If you don't know, the event parameter has what you need... somewhere.
 
-    let toggle = event.target.innerText;
+    let toggle = event.target;
         // console.log(toggle);
 
     // Find the index of the array that this todo resides in. There are a couple
@@ -137,16 +137,17 @@ function toggleDone(event) {
 
 
     for (let i = 0; i < todos.length; i++){
-        if (toggle === todos[i] && isDone[i] === false) {
+        if (toggle.innerText === todos[i] && isDone[i] === false) {
             isDone[i] = true;
+            toggle.style.textDecoration = 'line-through';
 
-            console.log(todos[i]);
+            // console.log(todos[i]);
             console.log(isDone);
         }
-        else if (toggle === todos[i] && isDone[i] === true) {
+        else if (toggle.innerText === todos[i] && isDone[i] === true) {
             isDone[i] = false;
-
-            console.log(todos[i]);
+            toggle.style.textDecoration = 'none';
+            // console.log(todos[i]);
             console.log(isDone);
         }
         }
