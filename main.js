@@ -133,10 +133,18 @@ function clearDoneTodos(event) {
         Your call.
     */
 
+    todos = newToDo;
+    isDone = newIsDone;
+
+    console.log(todos);
+    console.log(newToDo);
+    console.log(isDone);
+    console.log(newIsDone);
+
    const ol = document.querySelector('#todo-list');
    removeAllChildrenOfOl();
    _addItemsToOl(newToDo, ol);
-
+   
    
 
 }
